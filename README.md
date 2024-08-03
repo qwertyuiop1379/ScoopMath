@@ -399,7 +399,7 @@ U32Matrix<Rows, Cols> = Matrix<uint32_t, Rows, Cols>
 U64Matrix<Rows, Cols> = Matrix<uint64_t, Rows, Cols>
 ```
 
-Each one of the aforementioned vector aliases also has the following aliases for square sizes of 2, 3, and 4:
+Each one of the aforementioned matrix aliases also has the following aliases for square sizes of 2, 3, and 4:
 ```c++
 FMatrix2 = FMatrix<2, 2>
 FMatrix3 = FMatrix<3, 3>
