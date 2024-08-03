@@ -218,7 +218,7 @@ Type data[Rows * Cols];
 ```
 A c-array containing the elements of the matrix.
 
-### Public methods
+### Constructors
 
 ```c++
 Matrix() = default;
@@ -234,6 +234,8 @@ Calls `this->Assign(diagonal);`
 Matrix(const std::vector<Type> &values);
 ```
 Calls `this->Assign(values);`
+
+### Public methods
 
 ```c++
 void Assign(Type diagonal);
@@ -377,8 +379,6 @@ Returns a translation matrix for use in 3D space.
 static Matrix<Type, 4, 4> Scale(const Vector<Type, 3> &multipliers);
 ```
 Returns a scale matrix for use in 3D space.
-
-
 
 ### Template aliases
 
