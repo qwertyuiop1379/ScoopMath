@@ -238,8 +238,8 @@ namespace Scoop::Math
     __TYPED_VEC_ALIAS(int16_t, I16Vector);
     __TYPED_VEC_ALIAS(int32_t, I32Vector);
     __TYPED_VEC_ALIAS(int64_t, I64Vector);
+    
     __TYPED_VEC_ALIAS(uint8_t, U8Vector);
-
     __TYPED_VEC_ALIAS(uint16_t, U16Vector);
     __TYPED_VEC_ALIAS(uint32_t, U32Vector);
     __TYPED_VEC_ALIAS(uint64_t, U64Vector);
