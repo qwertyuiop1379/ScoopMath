@@ -44,7 +44,7 @@ namespace Scoop::Math
         void Assign(const std::vector<Type> &values)
         {
             if (values.size() != Rows * Cols)
-                throw Error::Create("Matrix", "Assign", "Specified std::vector::size does not match this matrix's size.");
+                throw std::runtime_error("Matrix::Assign: vector size mismatch.");
             std::memcpy(this->data, data, sizeof(Type) * Rows * Cols);
         }
 
@@ -53,14 +53,14 @@ namespace Scoop::Math
         Type &At(size_t index)
         {
             if (index >= Rows * Cols)
-                throw Error::IndexError("Matrix", "At", index, Rows * Cols);
+                throw std::out_of_range("Matrix::At: index out of range.");
             return this->data[index];
         }
 
         const Type &At(size_t index) const
         {
             if (index >= Rows * Cols)
-                throw Error::IndexError("Matrix", "At", index, Rows * Cols);
+                throw std::out_of_range("Matrix::At: index out of range.");
             return this->data[index];
         }
 
@@ -77,7 +77,7 @@ namespace Scoop::Math
         Vector<Type, Rows> AsVector() const
         {
             if (Cols != 1)
-                throw Error::Create("Matrix", "AsVector", "Only matrices with 1 column may be interpreted as a vector.");
+                throw std::runtime_error("Matrix::AsVector: matrix must have 1 column to be interpreted as a vector.");
             return Vector<Type, Rows>(this->data);
         }
 

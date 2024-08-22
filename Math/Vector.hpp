@@ -3,6 +3,7 @@
 #include <cmath>
 #include <cstdint>
 #include <cstring>
+#include <stdexcept>
 
 namespace Scoop::Math
 {
@@ -37,7 +38,7 @@ namespace Scoop::Math
         void Assign(const std::vector<Type> &values)
         {
             if (values.size() != Size)
-                throw Error::Create("Vector", "Assign", "Specified std::vector::size does not match this vector's size.");
+                throw std::runtime_error("Vector::Assign: vector size mismatch.");
             std::memcpy(this->data, &values[0], sizeof(Type) * Size);
         }
 
@@ -46,14 +47,14 @@ namespace Scoop::Math
         Type &At(size_t index)
         {
             if (index >= Size)
-                throw Error::IndexError("Vector", "At", index, Size);
+                throw std::out_of_range("Vector::At: index out of range.");
             return this->data[index];
         }
 
         const Type &At(size_t index) const
         {
             if (index >= Size)
-                throw Error::IndexError("Vector", "At", index, Size);
+                throw std::out_of_range("Vector::At: index out of range.");
             return this->data[index];
         }
 
